@@ -78,7 +78,7 @@ def frame_camera(cam: mujoco.MjvCamera) -> None:
     """Pull the free camera back so the whole arm is visible."""
     cam.type = mujoco.mjtCamera.mjCAMERA_FREE
     cam.lookat[:] = (0.0, -0.1, 0.15)
-    cam.distance = 0.9
+    cam.distance = 0.75
     cam.azimuth = 135
     cam.elevation = -20
 
