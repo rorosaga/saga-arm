@@ -1,0 +1,28 @@
+[project]
+name = "saga-arm"
+version = "0.1.0"
+description = "MuJoCo simulation of the LeRobot SO-ARM100 with keyboard teleop"
+readme = "README.md"
+requires-python = ">=3.13,<3.14"
+dependencies = [
+    "mujoco>=3.12",
+    "numpy>=2",
+]
+
+[dependency-groups]
+dev = ["pytest>=8"]
+
+[tool.uv]
+# mjpython (needed for the macOS viewer) can't dlopen uv's standalone Python
+# builds. Homebrew's framework build works, so prefer system interpreters.
+python-preference = "only-system"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["saga_arm"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
